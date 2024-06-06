@@ -34,16 +34,13 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     private RedisUtil redisUtil;
     @Resource
     private CommonUtil commonUtil;
-
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        // 打印访问日志
-        log.info(request.getRequestURL().toString());
         // 获取jwt
         String jwt = request.getHeader("token");
         // 获取请求路径
         String requestURI = request.getRequestURI();
-        // 验证url是否在白名单之内
+        // 验证url是否在白名单之内S
         boolean ignore = commonUtil.existFlag(commonUtil.getIgnoreUrlArray(), requestURI);
         // jwt为空 且 url在白名单之内
         if (!StringUtils.hasText(jwt) && ignore) {
@@ -75,6 +72,8 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             ResponseUtil.exceptionEnumOut(response, ExceptionEnum.TOKEN_ERROR);
             return;
         }
+        // 打印访问日志
+        log.info("用户：{}，访问：{}，成功！", loginUserVo.getId(), request.getRequestURL().toString());
         // TODO 存入SecurityContextHolder上下文
         // 获取权限列表并转换
         List<SimpleGrantedAuthority> authorityList = loginUserVo.getAuthUrlList().stream()

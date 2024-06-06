@@ -11,6 +11,7 @@ module.exports = defineConfig({
   transpileDependencies: true,
   configureWebpack: {
     devServer: {
+      allowedHosts: "all",
       proxy: {
         '^/api': {
           target: "http://127.0.0.1:9001/",

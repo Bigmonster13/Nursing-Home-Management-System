@@ -19,9 +19,9 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://127.0.0.1:3306/db_gerocomium?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+      url: jdbc:mysql://127.0.0.1:3306/db_gerocomium?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
       username: root
-      password: 123456
+      password: root
       # 初始连接数
       initial-size: 10
       # 最小连接数
@@ -57,9 +57,9 @@ spring:
             multi-statement-allow: true
   # Redis配置
   redis:
-    host: 127.0.0.1
+    host: 192.168.231.66
     port: 6379
-#    password: 123456
+    password: 123456
     timeout: 10000
     database: 1
     jedis:
@@ -84,12 +84,12 @@ mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
   # 数据表实体包路径
   type-aliases-package: com.ew.gerocomium.dao.entity.po
-  configuration:
-    # 打印sql操作记录
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  configuration:
+#    # 打印sql操作记录
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 # 文件通用路径配置
 filesave:
-  windows: D:\java1234-image
+  windows: C:\Users\gengzeyu\Pictures\Camera Roll
   upload-head: http://127.0.0.1:9001
   local-head: http://127.0.0.1:9001
 ignore:

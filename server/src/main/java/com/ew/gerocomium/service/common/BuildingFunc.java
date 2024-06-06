@@ -194,6 +194,9 @@ public class BuildingFunc {
         // 生成唯一标识
         int[] i = {0};
         buildingVoList.forEach(node -> generateOnlyMark(node, i));
+        // 打印节点的唯一标识(仅用于调试)
+        buildingVoList.forEach(this::printNodeUniqueMark);
+
         return buildingVoList;
     }
 
@@ -206,6 +209,17 @@ public class BuildingFunc {
             }
         }
     }
+
+    // 遍历打印节点的唯一标识
+    public void printNodeUniqueMark(TreeVo node) {
+        System.out.println("Node ID: " + node.getId() + ", Unique Mark: " + node.getOnlyMark());
+        if (node.getChildrenList() != null) {
+            for (TreeVo child : node.getChildrenList()) {
+                printNodeUniqueMark(child);
+            }
+        }
+    }
+
 
     /**
      * 删除楼栋节点

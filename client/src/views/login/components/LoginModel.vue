@@ -61,8 +61,6 @@
           :loading="loading"
           >登录
         </el-button>
-        <a href="http://www.java1234.com/a/bysj/javaweb/" target='_blank'><font color=red>Java1234收藏整理</font></a>
-
       </el-form-item>
     </el-form>
   </div>

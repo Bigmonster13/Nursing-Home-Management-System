@@ -6,9 +6,9 @@ public interface Constant {
 
     // DEVELOPER
     // 开发者
-    String DEVELOPER = "@developer ";
+    String DEVELOPER = "@2695917656@qq.com ";
     // 开发者姓名
-    String EMPEROR_WEN = "Xxx";
+    String EMPEROR_WEN = "Gengzeyu";
 
     // ANONYMOUS
     // 匿名用户
